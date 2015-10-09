@@ -56,7 +56,7 @@ var holidaySchema=mongoose.Schema({
         type: { type: String, required: true },
         halfDay: { type: Boolean, required: true, default: false },
         applierId: { type: mongoose.Schema.Types.ObjectId, required: true },
-        approverId: { type: mongoose.Schema.Types.ObjectId, required: true },
+        approverId: { type: String, required: true },
         reason: { type: String, required: true },
         noOfDays:{type:Number,required:true},
         status: { type: String, enum: ['approved', 'rejected', 'applied', 'cancelled'], default: 'applied', required: true }

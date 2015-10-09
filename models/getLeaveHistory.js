@@ -1,6 +1,6 @@
 module.exports=function(req,res){		
-		var obj=req.query;
-		var id=obj.id;
+		var obj=req.body;
+		var id=obj.uniqueid;
 		if(obj.status)
 		  leaveRecord.find({applierId:mongoose.Types.ObjectId(id),status:obj.status},function(err,result){
 			if(err)

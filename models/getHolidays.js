@@ -1,5 +1,6 @@
-module.exports=function(req,res){    
-    user.findById(req.query.id,{location:1},
+module.exports=function(req,res) { 
+	var userid = req.body.uniqueid    
+    user.findById(userid,{location:1},
 			function(err,doc){
 				if(err)
 				{

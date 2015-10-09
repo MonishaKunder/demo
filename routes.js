@@ -1,8 +1,8 @@
-var getData = require('./models/getdata');
+
  
 
 module.exports = function(app) {
-	app.get('/getdata',getData);
+	app.get('/getdata',require('./models/getdata'));
     
     app.post('/applyLeave',require('./models/applyLeave'))
 

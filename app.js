@@ -4,8 +4,8 @@ var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
 var config = require('./config');
 
-app.use(bodyParser.urlencoded({ extended: false}));
-app.use(bodyParser.json());
+app.use(bodyparser.urlencoded({ extended: false}));
+app.use(bodyparser.json());
 
 app.use(function(req, res, next) {
   console.log("Req ip"+req.ip)

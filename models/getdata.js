@@ -14,7 +14,7 @@ module.exports = function(req,res) {
 		var username = data.username;
 		var password = data.password;
 
-		var user = new usermodel({
+		var user = new user({
 			personaldata : personaldetails,
 			organizationaldata : organizationaldetails,
 			address : address,

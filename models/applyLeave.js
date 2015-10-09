@@ -3,7 +3,7 @@ var mongoose=require('mongoose')
 module.exports=function(req,res){
 	
 		var obj=req.body;
-		var id=obj.id;
+		var id=obj.uniqueid;
 		var days;
 		var dFrom=obj.from.split('-');
 		var dTo=obj.to.split('-');
@@ -13,7 +13,7 @@ module.exports=function(req,res){
 			days=(new Date(dTo[0],dTo[1]-1,dTo[2])- new Date(dFrom[0],dFrom[1]-1,dFrom[2]))/(3600*24*1000)+1;
 		async.waterfall([
 			function(callback){
-				user.findById(id,{reportingTo:1,},function(err,doc){
+				user.findById(id,{'organizationaldata.manager':1,},function(err,doc){
 					if(err)
 						callback(err)
 					else
@@ -29,7 +29,7 @@ module.exports=function(req,res){
 					type:obj.type,
 					halfDay:obj.halfday,
 					applierId:id,
-					approverId:doc.reportingTo,
+					approverId:doc.organizationaldata.manager,
 					reason:obj.reason,
 					noOfDays:days
 				}
