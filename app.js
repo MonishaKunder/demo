@@ -4,6 +4,17 @@ var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
 var config = require('./config');
 
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
+
+app.use(function(req, res, next) {
+  console.log("Req ip"+req.ip)
+  console.log("Req path"+req.path)
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, ");
+  next();
+});
+
 require('./routes')(app);
 
 mongoose.connect(config.mongourl,function(err,db) {
