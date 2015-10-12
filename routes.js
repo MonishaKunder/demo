@@ -6,9 +6,9 @@ module.exports = function(app) {
     
     app.post('/leave',require('./models/applyLeave'))
 
-    app.post('/holidays',require('./models/getHolidays'))
+    app.get('/holidays/:uniqueid',require('./models/getHolidays'))
 
-    app.post('/leave-summary',require('./models/getLeaveSummary'))
+    app.get('/leave-summary/:uniqueid',require('./models/getLeaveSummary'))
 
-    app.post('/leave-history',require('./models/getLeaveHistory'))
+    app.get('/leave-history/:uniqueid/:status',require('./models/getLeaveHistory'))
 }
