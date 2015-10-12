@@ -14,7 +14,7 @@ module.exports=function(req,res){
 			days=(new Date(dTo[0],dTo[1]-1,dTo[2])- new Date(dFrom[0],dFrom[1]-1,dFrom[2]))/(3600*24*1000)+1;
 		async.waterfall([
 			function(callback){
-				user.findById(id,{'organizationaldata.manager':1,},function(err,doc){
+				user.findById(id,{'organizationaldata.manager':1,personaldata:1},function(err,doc){
 					if(err)
 						callback(err)
 					else
@@ -22,14 +22,16 @@ module.exports=function(req,res){
 				})
 			},
 			function(doc,callback){
-			    
+			    console.log(doc)
 				var lObj={
 					appliedOn:new Date(Date.now()),
 					from:new Date(dFrom[0],dFrom[1]-1,dFrom[2]),
 					to:new Date(dTo[0],dTo[1]-1,dTo[2]),
 					type:obj.type,
 					halfDay:obj.halfday,
-					applierId:id,
+					applierId:{displayName:doc.personaldata['first name']+" "+doc.personaldata['last name'],
+								id:id,
+								avatartUrl:""},
 					approverId:doc.organizationaldata.manager,
 					reason:obj.reason,
 					noOfDays:days
@@ -46,7 +48,7 @@ module.exports=function(req,res){
 				if(err)
 				{
 					res.json({
-						statusCode:500,
+						status:"failure",
 						err:err,
 						data:null
 					})
@@ -56,7 +58,7 @@ module.exports=function(req,res){
 				{
 					console.log("Success")
 					res.json({
-						statusCode:200,
+						status:"success",
 						err:null,
 						data:result
 					})
