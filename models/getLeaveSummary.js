@@ -1,8 +1,8 @@
 var async=require('async')
 var mongoose=require('mongoose')
 module.exports=function(req,res){
-	var obj=req.query;
-		var id=obj.id;
+	var obj=req.body;
+		var id=obj.uniqueid;
 
 		async.waterfall([
 			function(callback){

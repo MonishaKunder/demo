@@ -1,5 +1,5 @@
 module.exports=function(req,res) { 
-	var userid = req.query.uniqueid    
+	var userid = req.body.uniqueid    
     user.findById(userid,{'organizationaldata.location':1},
 			function(err,doc){
 				if(err)
