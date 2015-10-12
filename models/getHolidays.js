@@ -1,6 +1,8 @@
-module.exports=function(req,res) { 
+require('../schema');
+
+module.exports=function(req,res) {
 	var userid = req.body.uniqueid    
-    user.findById(userid,{location:1},
+    user.findById(userid,{'organizationaldata.location':1},
 			function(err,doc){
 				if(err)
 				{
@@ -13,8 +15,8 @@ module.exports=function(req,res) {
 					
 				}
 				else
-					
-					holiday.find({location:doc.location},function(err,docs){
+					console.log(doc);
+					holiday.find({location:doc.organizationaldata.location},function(err,docs) {
 						if(err)
 						{
 							console.log(err)

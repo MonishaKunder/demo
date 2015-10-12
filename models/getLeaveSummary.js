@@ -1,8 +1,11 @@
 var async=require('async')
 var mongoose=require('mongoose')
+require('../schema')
+
 module.exports=function(req,res){
-	var obj=req.query;
-		var id=obj.id;
+	
+	var obj=req.body;
+	var id=obj.uniqueid;
 
 		async.waterfall([
 			function(callback){
@@ -10,6 +13,7 @@ module.exports=function(req,res){
 					if(err)
 						callback(err)
 					else
+						console.log(result);
 						callback(null,result);
 				})
 			},
