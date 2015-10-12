@@ -14,7 +14,7 @@ module.exports = function(req,res) {
 		var username = data.username;
 		var password = data.password;
 
-		var user = new user({
+		var usersample = new user({
 			personaldata : personaldetails,
 			organizationaldata : organizationaldetails,
 			address : address,
@@ -23,7 +23,7 @@ module.exports = function(req,res) {
 			password : password
 		});
 
-		user.save(function(err,doc) {
+		usersample.save(function(err,doc) {
 			console.log(doc);
 		});
 	})	
