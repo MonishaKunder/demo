@@ -37,4 +37,5 @@ module.exports = function(req,res) {
 	event.on('end',function() {
 		process.exit();
 	})
+})
 }
