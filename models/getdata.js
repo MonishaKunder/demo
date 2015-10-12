@@ -13,8 +13,13 @@ module.exports = function(req,res) {
 		var emergencycontact = {'emergency mail':data['emergency mail'],'emergency number':data['emergency number'],'emergency relation':data['emergency relation'],'emergency name':data['emergency name']};
 		var username = data.username;
 		var password = data.password;
-
-		var user = new user({
+       
+       console.log(personaldetails)
+       console.log(organizationaldetails)
+       console.log(emergencycontact)
+       console.log(username)
+       console.log(password)
+		var user1 = new user({
 			personaldata : personaldetails,
 			organizationaldata : organizationaldetails,
 			address : address,
@@ -23,7 +28,7 @@ module.exports = function(req,res) {
 			password : password
 		});
 
-		user.save(function(err,doc) {
+		user1.save(function(err,doc) {
 			console.log(doc);
 		});
 	})	
