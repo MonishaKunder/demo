@@ -1,14 +1,14 @@
 require('../schema');
 
 module.exports=function(req,res) {
-	var userid = req.body.uniqueid    
+	var userid = req.headers['uniqueid']    
     user.findById(userid,{'organizationaldata.location':1},
 			function(err,doc){
 				if(err)
 				{
 					console.log(err)
 					res.json({
-						statusCode:500,
+						status:"failure",
 						error:err,
 						data:null
 					})
@@ -20,7 +20,7 @@ module.exports=function(req,res) {
 						{
 							console.log(err)
 							res.json({
-								statusCode:500,
+								status:"failure",
 								error:err,
 								data:null
 							})
@@ -29,7 +29,7 @@ module.exports=function(req,res) {
 						{
 							if(docs.length!=0)
 								res.json({
-									statusCode:200,
+									status:"success",
 									error:null,
 									data:docs
 								})

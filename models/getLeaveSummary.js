@@ -3,8 +3,8 @@ var mongoose=require('mongoose')
 require('../schema')
 
 module.exports=function(req,res) {
-	var obj=req.body;
-	var id=obj.uniqueid;
+	
+	var id=req.headers['uniqueid'];
 		async.waterfall([
 			function(callback){
 				leaveType.find({},function(err,result){
@@ -27,7 +27,7 @@ module.exports=function(req,res) {
 					if(err)
 					{
 						res.json({
-							statusCode:500,
+							status:"failure",
 							err:err,
 							data:null
 						})
@@ -67,7 +67,7 @@ module.exports=function(req,res) {
 					    }
 						
 						res.json({
-							statusCode:200,
+							statusCode:"success",
 							err:null,
 							data:data1
 						})

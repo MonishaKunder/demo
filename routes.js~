@@ -6,10 +6,18 @@ module.exports = function(app) {
     
     app.post('/leave',require('./models/applyLeave'))
 
+<<<<<<< HEAD
+    app.get('/holidays/:uniqueid',require('./models/getHolidays'))
+
+    app.get('/leave-summary/:uniqueid',require('./models/getLeaveSummary'))
+
+    app.get('/leave-history/:uniqueid/:status',require('./models/getLeaveHistory'))
+}
+=======
     app.get('/holidays',require('./models/getHolidays'))
 
     app.get('/leave-summary',require('./models/getLeaveSummary'))
 
     app.get('/leave-history',require('./models/getLeaveHistory'))
 }
-
+>>>>>>> 435c1fb449ac4a867983bf6fe805f139fd799025

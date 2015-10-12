@@ -1,16 +1,16 @@
+
 require('../schema');
 var mongoose = require('mongoose');
-
 module.exports=function(req,res){		
-		var obj=req.body;
-		var id=obj.uniqueid;
+		var obj=req.query;
+		var id=req.headers['uniqueid'];
 
 		if(obj.status)
 		  leaveRecord.find({applierId:mongoose.Types.ObjectId(id),status:obj.status},function(err,result){
 			if(err)
 				{
 					res.json({
-						statusCode:500,
+						status:"failure",
 						err:err,
 						data:null
 					})
@@ -18,7 +18,7 @@ module.exports=function(req,res){
 				}
 			else
 				res.json({
-						statusCode:200,
+						status:"success",
 						err:null,
 						data:result
 					})
@@ -29,7 +29,7 @@ module.exports=function(req,res){
 			if(err)
 				{
 					res.json({
-						statusCode:500,
+						status:"failure",
 						err:err,
 						data:null
 					})
@@ -38,7 +38,7 @@ module.exports=function(req,res){
 			else
 				if(result.length!=0)
 					res.json({
-						statusCode:200,
+						status:"success",
 						err:null,
 						data:result
 					})

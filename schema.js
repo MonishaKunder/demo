@@ -54,7 +54,7 @@ var holidaySchema=mongoose.Schema({
         from: { type: Date, required: true },
         type: { type: String, required: true },
         halfDay: { type: Boolean, required: true, default: false },
-        applierId: { type: mongoose.Schema.Types.ObjectId, required: true },
+        applierId: {type: Object, required: true },
         approverId: { type: String, required: true },
         reason: { type: String, required: true },
         noOfDays:{type:Number,required:true},
