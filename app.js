@@ -23,7 +23,7 @@ mongoose.connect(config.mongourl,function(err,db) {
 	}
 	else {
 		app.listen(config.port,function() {
-			console.log('The app is listening on port 8000');
+			console.log('The app is listening on port '+config.port);
 		})
 	}
 })

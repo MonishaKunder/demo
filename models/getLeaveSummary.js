@@ -2,11 +2,9 @@ var async=require('async')
 var mongoose=require('mongoose')
 require('../schema')
 
-module.exports=function(req,res){
-	
+module.exports=function(req,res) {
 	var obj=req.body;
 	var id=obj.uniqueid;
-
 		async.waterfall([
 			function(callback){
 				leaveType.find({},function(err,result){

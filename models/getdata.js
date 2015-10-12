@@ -12,9 +12,13 @@ module.exports = function(req,res) {
 		var address = {'country':data['country'],'pin':data['pin'],'state':data['state'],'city':data['city'],'reference':data['reference'],'street name':data['street name'],'building number':data['building number'],'building name':data['building name']};
 		var emergencycontact = {'emergency mail':data['emergency mail'],'emergency number':data['emergency number'],'emergency relation':data['emergency relation'],'emergency name':data['emergency name']};
 		var username = data.username;
-		var password = data.password;
-
-		var usersample = new user({
+		var password = data.password;       
+       console.log(personaldetails)
+       console.log(organizationaldetails)
+       console.log(emergencycontact)
+       console.log(username)
+       console.log(password)
+		var user1 = new user({
 			personaldata : personaldetails,
 			organizationaldata : organizationaldetails,
 			address : address,
@@ -23,10 +27,12 @@ module.exports = function(req,res) {
 			password : password
 		});
 
-		usersample.save(function(err,doc) {
+
+		
+		user1.save(function(err,doc) {
 			console.log(doc);
 		});
-	})	
+
 	
 	event.on('end',function() {
 		process.exit();

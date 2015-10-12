@@ -1,0 +1,49 @@
+require('../schema');
+
+module.exports=function(req,res) {
+	var userid = req.body.uniqueid    
+    user.findById(userid,{'organizationaldata.location':1},
+			function(err,doc){
+				if(err)
+				{
+					console.log(err)
+					res.json({
+						statusCode:500,
+						error:err,
+						data:null
+					})
+					
+				}
+				else
+<<<<<<< HEAD
+					console.log(doc);
+					holiday.find({location:doc.organizationaldata.location},function(err,docs) {
+=======
+					
+					holiday.find({location:doc.organizationaldata.location},function(err,docs){
+>>>>>>> 2ae3f3f82fb2f962836a375c3a9564beded95f43
+						if(err)
+						{
+							console.log(err)
+							res.json({
+								statusCode:500,
+								error:err,
+								data:null
+							})
+						}
+						else
+						{
+							if(docs.length!=0)
+								res.json({
+									statusCode:200,
+									error:null,
+									data:docs
+								})
+							else
+								res.sendStatus(404)
+
+						}
+				        
+					}).sort({date:1})
+				})
+}

@@ -15,8 +15,7 @@ module.exports=function(req,res) {
 					
 				}
 				else
-					console.log(doc);
-					holiday.find({location:doc.organizationaldata.location},function(err,docs) {
+					holiday.find({location:doc.organizationaldata.location},function(err,docs){
 						if(err)
 						{
 							console.log(err)
