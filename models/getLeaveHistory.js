@@ -1,6 +1,5 @@
 
 require('../schema');
-var mongoose = require('mongoose');
 
 module.exports=function(req,res){	
 		var obj=req.query;

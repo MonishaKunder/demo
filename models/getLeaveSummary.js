@@ -1,5 +1,4 @@
 var async=require('async')
-var mongoose=require('mongoose')
 require('../schema')
 
 module.exports=function(req,res) {
@@ -11,7 +10,6 @@ module.exports=function(req,res) {
 					if(err)
 						callback(err)
 					else
-						console.log(result);
 						callback(null,result);
 				})
 			},

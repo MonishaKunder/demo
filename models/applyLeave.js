@@ -25,8 +25,8 @@ module.exports=function(req,res){
 			function(doc,callback){
 				var lObj={
 					appliedOn:new Date(Date.now()),
-					from:new Date(dFrom[0],dFrom[1]-1,dFrom[2]),
-					to:new Date(dTo[0],dTo[1]-1,dTo[2]),
+					from:new Date(obj.from).toISOString(),
+					to:new Date(obj.to).toISOString(),
 					type:obj.type,
 					halfDay:obj.halfday,
 					applierId:{displayName:doc.personaldata['first name']+" "+doc.personaldata['last name'],
