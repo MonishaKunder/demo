@@ -23,7 +23,9 @@ var holidaySchema=mongoose.Schema({
         date: {type: Date},
         type: { type: String, enum: ['mandatory', 'optional'], default: 'mandatory' },
         description: String,
-        location: String
+        location: String,
+	   imgname:String
+	
 	})
 
     holidaySchema.set('toJSON', {
