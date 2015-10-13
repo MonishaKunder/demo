@@ -1,5 +1,6 @@
 var async=require('async')
 var mongoose=require('mongoose')
+require('../schema');
 
 module.exports=function(req,res){
 	
@@ -22,7 +23,6 @@ module.exports=function(req,res){
 				})
 			},
 			function(doc,callback){
-			    console.log(doc)
 				var lObj={
 					appliedOn:new Date(Date.now()),
 					from:new Date(dFrom[0],dFrom[1]-1,dFrom[2]),

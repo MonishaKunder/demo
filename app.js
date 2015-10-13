@@ -8,8 +8,10 @@ app.use(bodyparser.urlencoded({ extended: false}));
 app.use(bodyparser.json());
 
 app.use(function(req, res, next) {
+	/*
   console.log("Req ip"+req.ip)
   console.log("Req path"+req.path)
+  */
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, ");
   next();

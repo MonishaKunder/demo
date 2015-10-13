@@ -1,7 +1,7 @@
 require('../schema');
 
 module.exports=function(req,res) {
-	var userid = req.headers['uniqueid']    
+	var userid = req.headers['uniqueid']   
     user.findById(userid,{'organizationaldata.location':1},
 			function(err,doc){
 				if(err)

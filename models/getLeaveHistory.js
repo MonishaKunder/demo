@@ -1,10 +1,11 @@
 
 require('../schema');
 var mongoose = require('mongoose');
-module.exports=function(req,res){		
+
+module.exports=function(req,res){	
 		var obj=req.query;
 		var id=req.headers['uniqueid'];
-
+		/*
 		if(obj.status)
 		  leaveRecord.find({applierId:mongoose.Types.ObjectId(id),status:obj.status},function(err,result){
 			if(err)
@@ -25,7 +26,8 @@ module.exports=function(req,res){
 			
 		}).sort({from:-1})
 		else
-			leaveRecord.find({applierId:mongoose.Types.ObjectId(id)},function(err,result){
+			*/
+			leaveRecord.find({'applierId.id':id},function(err,result){
 			if(err)
 				{
 					res.json({
