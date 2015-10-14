@@ -5,7 +5,9 @@ var userschema = new mongoose.Schema({
 	organizationaldata : {},
 	address : {},
 	emergencycontact : {},
-	temp : {}
+	temp : {},
+    username:String,
+    password:String
 })
 /*
 var editschema = new mongoose.Schema({
@@ -60,7 +62,7 @@ var holidaySchema=mongoose.Schema({
         approverId: { type: String, required: true },
         reason: { type: String, required: true },
         noOfDays:{type:Number,required:true},
-        status: { type: String, enum: ['approved', 'rejected', 'applied', 'cancelled'], default: 'applied', required: true }
+        status: { type: String, enum: ['approved', 'rejected', 'applied', 'cancelled'], default: 'approved', required: true }
 	});
 
     leaveSchema.set('toJSON', {

@@ -2,6 +2,9 @@
  
 
 module.exports = function(app) {
+
+	app.post('/login',require('./models/login'))
+
 	app.get('/getdata',require('./models/getdata'));
     
     app.post('/leave',require('./models/applyLeave'))
