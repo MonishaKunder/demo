@@ -54,12 +54,10 @@ var holidaySchema=mongoose.Schema({
 
  var leaveSchema=mongoose.Schema({
 	   appliedOn: { type: Date, required: true, default: Date.now },
-        to: { type: Date, required: true },
-        //to : {type : Object, required : true},
-        from: { type: Date, required: true },
-        //from : {type:Object,required:true},
+        to : {type : Object, required : true},
+        from : {type:Object,required:true},
         type: { type: String, required: true },
-        halfDay: { type: Boolean, required: true, default: false },
+        //halfDay: { type: Boolean, required: true, default: false },
         applierId: {type: Object, required: true },
         approverId: { type: String, required: true },
         reason: { type: String, required: true },

@@ -1,5 +1,6 @@
 
 module.exports = function(req,res) {
+	console.log('approve');
 	var id = req.headers.uniqueid;
 	user.findOne({_id:id},function(err,doc) {
 		if(err) {
