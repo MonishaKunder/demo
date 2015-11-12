@@ -15,10 +15,14 @@ module.exports = function(app) {
 
     app.get('/leave-history',require('./models/getLeaveHistory'))
 
+    app.get('/approve',require('./models/approve'));
+
     app.post('/viewinformation',require('./models/viewinformation'));
 
     app.post('/viewsearchinfo',require('./models/viewsearchinfo'));
 
     app.post('/viewconnections',require('./models/viewconnections'));
+
+    app.post('/manageraction',require('./models/manageraction'))
 }
 

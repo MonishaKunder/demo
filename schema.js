@@ -26,7 +26,7 @@ var holidaySchema=mongoose.Schema({
         type: { type: String, enum: ['mandatory', 'optional'], default: 'mandatory' },
         description: String,
         location: String,
-	   imgname:String
+  	    imgname:String
 	
 	})
 
@@ -55,14 +55,16 @@ var holidaySchema=mongoose.Schema({
  var leaveSchema=mongoose.Schema({
 	   appliedOn: { type: Date, required: true, default: Date.now },
         to: { type: Date, required: true },
+        //to : {type : Object, required : true},
         from: { type: Date, required: true },
+        //from : {type:Object,required:true},
         type: { type: String, required: true },
         halfDay: { type: Boolean, required: true, default: false },
         applierId: {type: Object, required: true },
         approverId: { type: String, required: true },
         reason: { type: String, required: true },
         noOfDays:{type:Number,required:true},
-        status: { type: String, enum: ['approved', 'rejected', 'applied', 'cancelled'], default: 'approved', required: true }
+        status: { type: String, enum: ['approved', 'rejected', 'applied', 'cancelled'], default: 'applied', required: true }
 	});
 
     leaveSchema.set('toJSON', {
