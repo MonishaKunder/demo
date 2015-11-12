@@ -15,7 +15,10 @@ module.exports=function(req,res) {
 					
 				}
 				else
-					holiday.find({location:doc.organizationaldata.location},function(err,docs){
+				{
+					var d=new Date();
+					var today=d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+					holiday.find({location:doc.organizationaldata.location,date:{$gte:new Date(today).toISOString()}},function(err,docs){
 						if(err)
 						{
 							console.log(err)
@@ -39,5 +42,6 @@ module.exports=function(req,res) {
 						}
 				        
 					}).sort({date:1})
-				})
+				}
+			})
 }
