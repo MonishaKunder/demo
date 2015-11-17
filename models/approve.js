@@ -11,7 +11,7 @@ module.exports = function(req,res) {
 				data: 'failed'
 			})
 		}
-		leaveRecord.find({approverId:doc.personaldata['employee id'],status:'applied'},{},{sort:{from:-1}},function(err,docs) {
+		leaveRecord.find({'approver.id':doc.personaldata['employee id'],status:'applied'},{},{sort:{from:-1}},function(err,docs) {
 			if(err) {
 				console.log(err);
 				res.json({

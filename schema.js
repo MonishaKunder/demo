@@ -7,7 +7,8 @@ var userschema = new mongoose.Schema({
 	emergencycontact : {},
 	temp : {},
     username:String,
-    password:String
+    password:String,
+    reportingManager:String
 })
 /*
 var editschema = new mongoose.Schema({
@@ -58,8 +59,8 @@ var holidaySchema=mongoose.Schema({
         from : {type:Object,required:true},
         type: { type: String, required: true },
         //halfDay: { type: Boolean, required: true, default: false },
-        applierId: {type: Object, required: true },
-        approverId: { type: String, required: true },
+        applier: {type: Object, required: true },
+        approver: {type: Object, required: true },
         reason: { type: String, required: true },
         noOfDays:{type:Number,required:true},
         status: { type: String, enum: ['approved', 'rejected', 'applied', 'cancelled'], default: 'applied', required: true }

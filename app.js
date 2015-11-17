@@ -8,15 +8,19 @@ app.use(bodyparser.urlencoded({ extended: false}));
 app.use(bodyparser.json());
 
 app.use(function(req, res, next) {
-	/*
+	
   console.log("Req ip"+req.ip)
   console.log("Req path"+req.path)
-  */
+ 
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, ");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type,uniqueid");
   next();
 });
 
+ process.on('uncaughtException',function(err){
+ 	console.log(err)
+ })
+ 
 require('./routes')(app);
 
 mongoose.connect(config.mongourl,function(err,db) {

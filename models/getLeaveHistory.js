@@ -5,7 +5,7 @@ module.exports=function(req,res){
 		var obj=req.query;
 		var id=req.headers['uniqueid'];
 		
-		leaveRecord.find({'applierId.id':id},function(err,result){
+		leaveRecord.find({'applier.id':id},function(err,result){
 			if(err)
 				{
 					res.json({

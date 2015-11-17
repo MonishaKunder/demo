@@ -19,7 +19,7 @@ module.exports=function(req,res) {
 				var total_count=0;
 				var total_availed=0;
 				leaveRecord.aggregate([
-					{$match:{'applierId.id':id,status:"approved"}},
+					{$match:{'applier.id':id,status:"approved"}},
 					{$group:{_id:"$type",availed:{$sum:"$noOfDays"}}}
 				],function(err,result){
 					if(err)

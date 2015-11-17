@@ -24,7 +24,8 @@ module.exports = function(req,res) {
 			address : address,
 			emergencycontact : emergencycontact,
 			username : username,
-			password : password
+			password : password,
+			reportingManager:data.reportingManager
 		});
 
 

@@ -10,7 +10,7 @@ module.exports = function(req,res) {
 					data: 'failed'
 				})
 			}
-			leaveRecord.find({approverId:doc.personaldata['employee id'],status:'applied'},{},{sort:{from:-1}},function(err,docs) {
+			leaveRecord.find({'approver.id':doc.personaldata['employee id'],status:'applied'},{},{sort:{from:-1}},function(err,docs) {
 				if(err) {
 					console.log(err);
 					res.json({
@@ -30,7 +30,9 @@ module.exports = function(req,res) {
 	}
 	var id = req.headers.uniqueid;
 	var obj = req.body;
-	if(obj.decision==true) {
+	console.log(obj.decision)
+	if(obj.decision=="true") {
+		console.log('Inside true')
 		leaveRecord.findOne({_id:obj.id},function(err,doc) {
 			if(err) {
 				console.log(err);
@@ -55,8 +57,10 @@ module.exports = function(req,res) {
 			
 		})
 	}
-	else {
-		if(err) {
+	else if(obj.decision=="false"){
+		console.log('Inside false')
+		leaveRecord.findOne({_id:obj.id},function(err,doc) {
+			if(err) {
 			console.log(err);
 			res.json({
 				status : 'failure',
@@ -64,7 +68,6 @@ module.exports = function(req,res) {
 				data: 'failed'
 			})
 		}
-		leaveRecord.findOne({_id:obj.id},function(err,doc) {
 			doc.status = 'rejected';
 			doc.save(function(err) {
 				if(err) {

@@ -1,7 +1,8 @@
 require('../schema.js')
 module.exports=function(req,res) {
 	var obj=req.body;
-	user.findOne({username:obj.username},{_id:1,password:1},function(err,result){
+	console.log(obj)
+	user.findOne({username:obj.username},{_id:1,password:1,reportingManager:1},function(err,result){
 		if(err)
 			{
 					res.json({
@@ -13,7 +14,7 @@ module.exports=function(req,res) {
 			}
 		else
 		{
-			if(result.password)
+			if(result)
 			{
 				if(result.password==obj.password)
 				{
@@ -21,7 +22,8 @@ module.exports=function(req,res) {
 						status:"success",
 						err:null,
 						data:{
-							uniqueid:result._id
+							uniqueid:result._id,
+							reportingManager:result.reportingManager
 						}
 					})
 				}
@@ -29,7 +31,7 @@ module.exports=function(req,res) {
 				{
 					res.json({
 						status:"failure",
-						err:"Inavlid username or password",
+						err:"Invalid username or password",
 						data:null
 					})
 				}
@@ -38,7 +40,7 @@ module.exports=function(req,res) {
 			{
 				res.json({
 					status:"failure",
-					err:"Inavlid username or password",
+					err:"Invalid username or password",
 					data:null
 				})
 			}
