@@ -52,11 +52,11 @@ module.exports=function(req,res){
 					applier:{displayName:doc.personaldata['first name']+" "+doc.personaldata['last name'],
 								email:doc.username,
 								id:id,
-								avatartUrl:""},
+								avatartUrl:doc.avatartUrl},
 					approver:{displayName:manager.personaldata['first name']+" "+manager.personaldata['last name'],
 								email:manager.username,
 								id:manager.personaldata['employee id'],
-								avatartUrl:""},
+								avatartUrl:manager.avatartUrl},
 					reason:obj.reason,
 					noOfDays:days
 				}

@@ -23,8 +23,11 @@ module.exports=function(req,res){
 						data:result
 					})
 				else
-					res.sendStatus(404)
-					
+					res.json({
+						status:"success",
+						err:null,
+						data:"No history"
+					})
 			
 		}).sort({from:1})
 	}

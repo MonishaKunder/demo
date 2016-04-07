@@ -3,6 +3,11 @@ var app = express();
 var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
 var config = require('./config');
+
+var compress = require('compression');
+
+app.use(compress({threshold:100})); 
+
 app.use('/files',express.static(__dirname+'/files'))
 app.use(bodyparser.urlencoded({ extended: false}));
 app.use(bodyparser.json());

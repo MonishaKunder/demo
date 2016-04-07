@@ -24,5 +24,11 @@ module.exports = function(app) {
     app.post('/viewconnections',require('./models/viewconnections'));
 
     app.post('/manageraction',require('./models/manageraction'))
+
+    app.get('/users',require('./models/getUsers'))
+
+   app.get('/getLocation',require('./models/getLocation'))
+
+    app.get('/leave-history/:id',require('./models/getSapHistory'))
 }
 
